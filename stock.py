@@ -127,7 +127,7 @@ conn.commit()
 
 # Save function to database  
 def save_stock_to_db(symbol, name, current_price, start_price, market_cap, sector, growth_percent):
-    # Delete existing record first, then insert new one (simpler approach)
+    # Delete existing record first, then insert new one 
     cursor.execute("DELETE FROM stocks WHERE symbol = %s", (symbol,))
     
     # Insert new record
@@ -140,7 +140,6 @@ def save_stock_to_db(symbol, name, current_price, start_price, market_cap, secto
 
 
 # Fetch and save data for multiple stocks
-print("Fetching stock data...")
 for symbol in STOCK_SYMBOLS:
     print(f"Fetching {symbol}...")
     stock_data = fetch_stock_data(symbol)
